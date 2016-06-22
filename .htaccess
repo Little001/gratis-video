@@ -1,3 +1,4 @@
 # podstrceni
 RewriteEngine on
-RewriteRule auto index.php
+RewriteRule index.php index.php
+RewriteRule admin Admin/add-serial.php
