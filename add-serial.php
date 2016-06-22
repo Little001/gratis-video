@@ -2,7 +2,7 @@
 	require_once __DIR__ . '/vendor/autoload.php';
 	$loader = new Twig_Loader_Filesystem('Resources/views');
 	$twig = new Twig_Environment($loader);
-	
+	require 'Admin/serial.php';
     
     
     
@@ -20,13 +20,14 @@
 		//echo "<script>console.log('Connected to DB failed!');</script>";
 	} 
     
-    $ser = array();
-    $sql = "SELECT * FROM serials ORDER BY visited DESC";
+    $serials = array();
+
+    $sql = "SELECT * FROM serials_name";
 	$result = $conn->query($sql);  
     if ($result->num_rows > 0){
         while($row = $result->fetch_assoc()) {
-            array_push($ser, $row["name"]);
+            array_push($serials, new serial($row["name"]));
         }
     } 
-    echo $twig->render('index.html', ['serials' =>  $ser]);
+    echo $twig->render('add-serial.html', ['serials' =>  $serials]);
 ?>

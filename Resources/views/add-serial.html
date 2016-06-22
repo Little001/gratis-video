@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gratis-Video</title>
+        <!-- JQUERY -->
+        <script src="vendor/frameworks/jquery/jquery.min.js"></script>
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" href="vendor/twitter/bootstrap/dist/css/bootstrap.min.css"/>
+        <script src="vendor/twitter/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- STYLE -->
+        <link rel="stylesheet" href="CSS/header.css"/>
+        <link rel="stylesheet" href="CSS/content.css"/>
+        <link rel="stylesheet" href="CSS/footer.css"/>
+        <!-- SCRIPTS -->
+        <script src="JS/add-serial.js"></script>
+        <style>
+            #series > div{
+                float: left;
+                margin-left: 25px;
+            }
+            .language{
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>gratis-video - add serials</h1>
+        </header>
+        {{ test }}
+        <div class="content">
+            <form id="upload" method="post" action="add-serial.php" enctype="multipart/form-data">
+                <label for="serial_name">Jméno seriálu: (totožný název jako v DB a jako složka)</label>
+                <input type="text" name="serial_name" id="serial_name"/>
+                <label for="genre">Žánr: </label>
+                <input type="texr" name="genre" id="genre">
+                <label for="series_count">Počet sérií: </label>
+                <input type="number" name="series_count" id="series_count" value="1">
+                <div id="series">
+                </div>
+                <input type="submit" value="add" id="add_serial" onclick="return false;"/>
+            </form>
+            <div class="result">Query: </div>
+        </diV>
+        <table border="1">
+            {% for serial in serials %}
+                <tr>
+                    <th colspan="2">{{ serial.name }}</th>
+                    <th colspan="2">{{ serial.visited }}</th>
+                </tr>
+                {% for epizode in serial.epizodes %}  
+                <tr>
+                    <td>{{epizode.name}}</td>    
+                    <td>{{epizode.serie_number}}</td>
+                    <td>{{epizode.path}}</td>
+                    <td>{{epizode.visited}}</td>
+                </tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+        <footer>
+        </footer>
+    </body>
+<html>

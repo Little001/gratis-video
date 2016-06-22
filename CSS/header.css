@@ -1,0 +1,28 @@
+body{
+    width: 100%;
+    background: white;
+}
+
+header{
+    max-width: 1024px;  
+    margin: 0 auto;
+    padding-top: 10px;
+}
+
+header h1{
+    margin: 0;
+}
+
+header img{
+    float: left;
+    width: 250px;
+}
+header .input-group{
+    float: right;
+    width: 250px;
+    top: 20px;
+}
+
+header .input{
+    color: black;
+}
