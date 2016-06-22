@@ -1,0 +1,3 @@
+# podstrceni
+RewriteEngine on
+RewriteRule auto index.php
