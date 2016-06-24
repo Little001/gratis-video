@@ -6,16 +6,15 @@
 
     
     $ser = array();
-    // $sql = "SELECT * FROM serials ORDER BY visited DESC";
-	// $result = $conn->query($sql);  
-    // if ($result->num_rows > 0){
-    //     while($row = $result->fetch_assoc()) {
-    //         array_push($ser, $row["name"]);
-    //     }
-    // } 
+    $sql = "SELECT * FROM serials ORDER BY visited DESC";
+	$result = $conn->query($sql);  
+    if ($result->num_rows > 0){
+        while($row = $result->fetch_assoc()) {
+            array_push($ser, $row["name"]);
+        }
+    } 
     
-    echo $twig->render('head.html');
-    echo $twig->render('body.html');
+    echo $twig->render('header.html');
     echo $twig->render('footer.html');
     
 ?>

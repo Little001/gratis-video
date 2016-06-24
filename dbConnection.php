@@ -2,8 +2,8 @@
 	$servername = "localhost";
 	$username = "root";
 	$password = "";
-	$dbname = "data";
-	
+	$dbname = "serials";
+	global $conn;
 	//Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);
 	// Check connection
